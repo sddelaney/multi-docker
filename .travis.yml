@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sddelaney/multi-docker -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true sddelaney/react-test npm test
+
+after_success:
+  - docker build -t sddelaney/multi-client ./client
+  - docker build -t sddelaney/multi-nginx ./nginx
+  - docker build -t sddelaney/multi-worker ./worker
+  - docker build -t sddelaney/multi-server ./server
