@@ -16,7 +16,7 @@ after_success:
   - docker build -t sddelaney/multi-server ./server
 
   # Log in to Docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Send to docker hub
   - docker push sddelaney/multi-nginx
   - docker push sddelaney/multi-client
