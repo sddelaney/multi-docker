@@ -13,3 +13,11 @@ after_success:
   - docker build -t sddelaney/multi-nginx ./nginx
   - docker build -t sddelaney/multi-worker ./worker
   - docker build -t sddelaney/multi-server ./server
+
+  # Log in to Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER"
+  # Send to docker hub
+  - docker push sddelaney/multi-nginx
+  - docker push sddelaney/multi-client
+  - docker push sddelaney/multi-server
+  - docker push sddelaney/multi-worker
