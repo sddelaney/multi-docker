@@ -11,12 +11,14 @@
     {
       "name": "server",
       "image": "sddelaney/multi-server",
+      "memory": 128,
       "hostname": "api",
       "essential": false
     },
     {
       "name": "worker",
       "image": "sddelaney/multi-worker",
+      "memory": 128,
       "hostname": "worker",
       "essential": false
     },
@@ -24,6 +26,7 @@
       "name": "nginx",
       "image": "sddelaney/multi-nginx",
       "hostname": "nginx",
+      "memory": 128,
       "essential": true,
       "portMappings": [
         { 
