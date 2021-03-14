@@ -6,19 +6,19 @@
       "image": "sddelaney/multi-client",
       "hostname": "client",
       "essential": false
-    }
+    },
     {
       "name": "server",
       "image": "sddelaney/multi-server",
       "hostname": "api",
       "essential": false
-    }
+    },
     {
       "name": "worker",
       "image": "sddelaney/multi-worker",
       "hostname": "worker",
       "essential": false
-    }
+    },
     {
       "name": "nginx",
       "image": "sddelaney/multi-nginx",
@@ -28,8 +28,9 @@
         { 
           "hostPort": 80,
           "containerPort": 80
-        }],
-        "links": [ "client", "server" ]
+        }
+      ],
+      "links": [ "client", "server" ]
     }
   ]  
 }
